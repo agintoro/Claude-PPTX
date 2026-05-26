@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Driva — Partners Thank You</title>
+<link rel="stylesheet" href="driva-tokens.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap">
+<style>
+  /* removed @import; using link tag for fonts to keep html-to-image happy */
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+    font-family: var(--font-sans);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .deck-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+
+  /* ------- Slide ------- */
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    background: var(--driva-warm);
+    color: var(--driva-ink);
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-sans);
+    padding: 70px 90px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ------- Top bar: eyebrow + mark + meta ------- */
+  .topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--driva-muted);
+  }
+  .eyebrow .sep {
+    display: inline-block;
+    margin: 0 12px;
+    opacity: 0.5;
+  }
+
+  .mark {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: var(--driva-ink);
+    color: var(--driva-paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 950;
+    font-size: 36px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* ------- Headline block ------- */
+  .head {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 60px;
+  }
+
+  .display {
+    font-size: 148px;
+    font-weight: 950;
+    letter-spacing: -0.065em;
+    line-height: 0.88;
+    margin: 0;
+  }
+
+  .display .ampersand {
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    color: var(--driva-muted);
+  }
+
+  .subhead {
+    max-width: 460px;
+    text-align: right;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--driva-muted);
+    padding-bottom: 18px;
+  }
+  .subhead strong {
+    color: var(--driva-ink);
+    font-weight: 850;
+  }
+
+  /* ------- Divider rule with count ------- */
+  .rule {
+    margin-top: 40px;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .rule .line {
+    flex: 1;
+    height: 1px;
+    background: var(--driva-ink);
+    opacity: 0.18;
+  }
+  .rule .label {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--driva-muted);
+  }
+  .rule .count {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    color: var(--driva-ink);
+  }
+
+  /* ------- Grid of partners ------- */
+  .grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 36px 28px;
+    align-content: start;
+  }
+
+  .partner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .disc {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--driva-card);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* faint inner ring to define edge on warm bg */
+    outline: 1px solid var(--driva-line);
+    outline-offset: -1px;
+  }
+
+  .disc img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    /* Some logos have huge whitespace padding — pull them in */
+    transform: scale(1.4);
+  }
+
+  /* Per-logo scale overrides (whitespace varies a lot) */
+  .disc.fit-tight  img { transform: scale(1.55); }
+  .disc.fit-snug   img { transform: scale(1.35); }
+  .disc.fit-normal img { transform: scale(1.15); }
+  .disc.fit-loose  img { transform: scale(1.0); }
+
+  .name {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--driva-ink);
+    line-height: 1.25;
+    min-height: 30px;
+    max-width: 200px;
+  }
+  .name small {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--driva-muted);
+    margin-top: 4px;
+  }
+
+  /* ------- Footer ------- */
+  .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid var(--driva-line);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--driva-muted);
+  }
+  .foot .lots {
+    color: var(--driva-ink);
+    letter-spacing: 0.18em;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="deck-wrap">
+
+  <section class="slide" data-screen-label="01 Partners Thank You">
+
+    <div class="topbar">
+      <div class="eyebrow">
+        Driva Coffee Co.
+        <span class="sep">·</span>
+        Indragiri / Patengan / Citamiang
+        <span class="sep">·</span>
+        2026 Season
+      </div>
+      <div class="mark">D</div>
+    </div>
+
+    <div class="head">
+      <h1 class="display">Terima kasih,<br/><span class="ampersand">to our</span> partners.</h1>
+      <p class="subhead">
+        To the <strong>fourteen roasters</strong> who put our lots on the bar this season —
+        sorted, fermented, dried and rested by hand.<br/>
+        <strong>Watch the night RH. Keep the airflow steady.</strong>
+      </p>
+    </div>
+
+    <div class="rule">
+      <span class="label">Partner Roasters</span>
+      <span class="line"></span>
+      <span class="count">14 / 14</span>
+    </div>
+
+    <div class="grid">
+
+      <div class="partner">
+        <div class="disc fit-loose"><img src="logos/rumah-sangrai-bloom.png" alt="Rumah Sangrai Bloom" /></div>
+        <div class="name">Rumah Sangrai<br/>Bloom <small>Bandung</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-loose"><img src="logos/forth.png" alt="Forth Coffee Co" /></div>
+        <div class="name">Forth Coffee Co. <small>Jakarta</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-normal"><img src="logos/hana.png" alt="Hana Roastery" /></div>
+        <div class="name">Hana Roastery <small>Surabaya</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-loose"><img src="logos/n.png" alt="N Roasters" /></div>
+        <div class="name">N. Roasters <small>Yogyakarta</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-snug"><img src="logos/contrast.png" alt="Contrast Coffee and Roastery" /></div>
+        <div class="name">Contrast <small>Roastery — Bali</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-loose"><img src="logos/kozi.png" alt="Kozi Company" /></div>
+        <div class="name">Kozi Company <small>Jakarta</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-tight"><img src="logos/koeslan.png" alt="Koeslan's Coffee" /></div>
+        <div class="name">Koeslan's Coffee <small>Semarang</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-tight"><img src="logos/instinct.png" alt="Instinct Roastery" /></div>
+        <div class="name">Instinct Roastery <small>Bandung</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-loose"><img src="logos/fugol.png" alt="Fugol" /></div>
+        <div class="name">Fugol <small>Roasters — Bali</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-loose"><img src="logos/froast.png" alt="F. Roast Assembly" /></div>
+        <div class="name">F. Roast Assembly <small>Surabaya</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-normal"><img src="logos/steambrew.png" alt="Steam &amp; Brew" /></div>
+        <div class="name">Steam &amp; Brew <small>Specialty — Jakarta</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-snug"><img src="logos/kofind.png" alt="Kofind Coffee Co." /></div>
+        <div class="name">Kofind Coffee Co. <small>Bandung</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-loose"><img src="logos/peopletemple.png" alt="People Temple" /></div>
+        <div class="name">People Temple <small>Jakarta</small></div>
+      </div>
+
+      <div class="partner">
+        <div class="disc fit-snug"><img src="logos/kopi-oemah-ladi.png" alt="Kopi Oemah l'adi" /></div>
+        <div class="name">Kopi Oemah l'adi <small>Solo</small></div>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      <span>Driva Processing OS · Season 2026</span>
+      <span class="lots">DRV-IND-2605 · DRV-PAT-2605 · DRV-CIT-2605</span>
+      <span>With thanks.</span>
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+  // simple fit-to-viewport scaling for the slide
+  (function(){
+    var slide = document.querySelector('.slide');
+    var wrap = document.querySelector('.deck-wrap');
+    function fit(){
+      var sx = window.innerWidth / 1920;
+      var sy = window.innerHeight / 1080;
+      var s = Math.min(sx, sy);
+      slide.style.transform = 'scale(' + s + ')';
+      slide.style.transformOrigin = 'top left';
+      wrap.style.width = (1920*s) + 'px';
+      wrap.style.height = (1080*s) + 'px';
+    }
+    window.addEventListener('resize', fit);
+    fit();
+  })();
+</script>
+
+</body>
+</html>
