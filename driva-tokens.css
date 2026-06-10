@@ -1,0 +1,171 @@
+/* =====================================================================
+   DRIVA — Colors & Type
+   Tokens distilled from the DRIVA Processing Log codebase. Cream paper,
+   ink black, coffee amber. Heavy Inter, tight letter-spacing, generous
+   rounding, soft warm shadows.
+   ===================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  /* ---------- Core palette ---------- */
+  --driva-ink: #111111;          /* Primary text + dark surfaces */
+  --driva-paper: #f7f3ea;        /* Cream — inverse text on ink */
+  --driva-warm: #d8d0bf;         /* Tan canvas / app background */
+  --driva-card: #ffffff;         /* Card surface */
+  --driva-line: #e7dfd0;         /* Hairline borders */
+  --driva-muted: #6b665d;        /* Secondary text */
+  --driva-fill: #fffaf1;         /* Input + field fill */
+  --driva-chip: #f1eadc;         /* Neutral badge bg */
+  --driva-chip-soft: #f5f0e7;    /* Micro-stat bg */
+
+  /* ---------- Status / accent palette ---------- */
+  --driva-amber: #8a5a12;        /* Drying / coffee accent */
+  --driva-amber-soft: #fae7bf;
+  --driva-green: #17633a;        /* Resting / Ready */
+  --driva-green-soft: #dff3e8;
+  --driva-red: #8b1f1f;          /* Danger / destructive */
+  --driva-red-soft: #fde1dd;
+
+  /* ---------- Inverse tokens (on ink) ---------- */
+  --driva-paper-muted: #c8c1b5;
+  --driva-paper-dim: #b9b1a4;
+  --driva-ink-glass: rgba(255, 255, 255, 0.12);
+  --driva-paper-glass: rgba(255, 255, 255, 0.45);
+  --driva-paper-glass-strong: rgba(255, 255, 255, 0.55);
+  --driva-paper-glass-soft: rgba(255, 255, 255, 0.6);
+
+  /* ---------- Type ---------- */
+  --driva-font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Display — massive, tight, "almost-too-heavy" headlines.
+     The codebase uses up to weight 950; we cap at 900 (highest in Inter). */
+  --driva-display: 900 clamp(32px, 7vw, 58px) / 0.95 var(--driva-font-sans);
+  --driva-display-tracking: -0.06em;
+
+  --driva-h1: 900 48px/0.95 var(--driva-font-sans);
+  --driva-h1-tracking: -0.06em;
+
+  --driva-h2: 800 24px/1.1 var(--driva-font-sans);
+  --driva-h2-tracking: -0.03em;
+
+  --driva-h3: 800 22px/1.15 var(--driva-font-sans);
+  --driva-h3-tracking: -0.03em;
+
+  --driva-lot-title: 900 19px/1.05 var(--driva-font-sans);
+  --driva-lot-title-tracking: -0.04em;
+
+  --driva-stat: 800 28px/1 var(--driva-font-sans);
+  --driva-stat-tracking: -0.05em;
+
+  /* Eyebrow — tiny, uppercase, very wide letter-spacing. Used everywhere
+     above titles, on lot IDs, on stat labels. The DRIVA signature. */
+  --driva-eyebrow: 900 11px/1 var(--driva-font-sans);
+  --driva-eyebrow-tracking: 0.24em;
+
+  /* Lot ID — slightly looser eyebrow */
+  --driva-id: 900 10px/1 var(--driva-font-sans);
+  --driva-id-tracking: 0.18em;
+
+  /* Field label — uppercase grouping label above inputs */
+  --driva-label: 800 12px/1 var(--driva-font-sans);
+  --driva-label-tracking: 0.12em;
+
+  --driva-body: 500 15px/1.5 var(--driva-font-sans);
+  --driva-body-sm: 500 13px/1.45 var(--driva-font-sans);
+  --driva-helper: 500 14px/1.5 var(--driva-font-sans);
+  --driva-micro: 600 12px/1 var(--driva-font-sans);
+
+  --driva-button: 900 15px/1 var(--driva-font-sans);
+  --driva-tab: 800 14px/1 var(--driva-font-sans);
+  --driva-badge: 800 12px/1 var(--driva-font-sans);
+
+  /* ---------- Radii ---------- */
+  --driva-r-pill: 999px;          /* Status badges */
+  --driva-r-btn: 18px;            /* Buttons + inputs */
+  --driva-r-micro: 18px;          /* Tiny stat tiles */
+  --driva-r-tab: 17px;            /* Active tab pill */
+  --driva-r-search: 20px;         /* Search + tab container */
+  --driva-r-tab-container: 22px;
+  --driva-r-detail-field: 22px;
+  --driva-r-card-sm: 24px;        /* Inline ph-row cards */
+  --driva-r-card: 26px;           /* Summary cards */
+  --driva-r-card-lg: 28px;        /* Empty states, hero panels */
+  --driva-r-lot-card: 30px;       /* Lot cards on dashboard */
+  --driva-r-panel: 32px;          /* Form + detail panels */
+
+  /* ---------- Spacing ---------- */
+  --driva-space-1: 4px;
+  --driva-space-2: 8px;
+  --driva-space-3: 10px;
+  --driva-space-4: 12px;
+  --driva-space-5: 14px;
+  --driva-space-6: 16px;
+  --driva-space-7: 18px;
+  --driva-space-8: 20px;
+  --driva-space-9: 22px;
+  --driva-space-10: 30px;
+
+  /* ---------- Elevation ---------- */
+  --driva-shadow: 0 18px 45px rgba(17, 17, 17, 0.10);
+  --driva-shadow-focus: 0 0 0 3px rgba(17, 17, 17, 0.08);
+
+  /* ---------- Containers ---------- */
+  --driva-max-w: 1120px;
+}
+
+/* =====================================================================
+   Semantic primitives — apply tokens to HTML elements.
+   Use these directly on demo pages and inside UI-kit components.
+   ===================================================================== */
+
+.driva-root {
+  font-family: var(--driva-font-sans);
+  color: var(--driva-ink);
+  background: var(--driva-warm);
+}
+
+.driva-eyebrow {
+  margin: 0 0 6px;
+  font: var(--driva-eyebrow);
+  letter-spacing: var(--driva-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--driva-muted);
+}
+
+.driva-id {
+  font: var(--driva-id);
+  letter-spacing: var(--driva-id-tracking);
+  text-transform: uppercase;
+  color: var(--driva-muted);
+}
+
+.driva-h1 {
+  margin: 0;
+  font: var(--driva-display);
+  letter-spacing: var(--driva-display-tracking);
+}
+
+.driva-h2 {
+  margin: 0;
+  font: var(--driva-h2);
+  letter-spacing: var(--driva-h2-tracking);
+}
+
+.driva-h3 {
+  margin: 0;
+  font: var(--driva-h3);
+  letter-spacing: var(--driva-h3-tracking);
+}
+
+.driva-label {
+  font: var(--driva-label);
+  letter-spacing: var(--driva-label-tracking);
+  text-transform: uppercase;
+  color: var(--driva-muted);
+}
+
+.driva-body { font: var(--driva-body); color: var(--driva-ink); }
+.driva-body-muted { font: var(--driva-body); color: var(--driva-muted); }
+.driva-helper { font: var(--driva-helper); color: var(--driva-muted); }
