@@ -1,0 +1,268 @@
+/* DRIVA — Instagram Carousel 1080×1350 (uses driva-tokens.css) */
+
+.ig-slide {
+  width: 1080px;
+  height: 1350px;
+  font-family: var(--driva-font-sans);
+  color: var(--driva-ink);
+  background: var(--driva-warm);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 84px;
+}
+.ig-slide, .ig-slide * { box-sizing: border-box; }
+
+.ig-slide--ink {
+  background: var(--driva-ink);
+  color: var(--driva-paper);
+}
+
+/* Subtle paper grain ring — premium texture without gradient slop */
+.ig-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid var(--driva-line);
+  pointer-events: none;
+}
+.ig-slide--ink .ig-ring { border-color: var(--driva-ink-glass); }
+
+/* ---------- Header strip ---------- */
+.ig-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+.ig-brand {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.ig-mark {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--driva-ink);
+  color: var(--driva-paper);
+  display: grid;
+  place-items: center;
+  font: 900 46px/1 var(--driva-font-sans);
+  letter-spacing: -0.04em;
+  box-shadow: var(--driva-shadow);
+}
+.ig-slide--ink .ig-mark {
+  background: var(--driva-paper);
+  color: var(--driva-ink);
+  box-shadow: none;
+}
+.ig-brand-name {
+  font: 900 30px/1 var(--driva-font-sans);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.ig-page {
+  font: 900 21px/1 var(--driva-font-sans);
+  letter-spacing: 0.26em;
+  color: var(--driva-muted);
+}
+.ig-slide--ink .ig-page { color: var(--driva-paper-dim); }
+
+/* ---------- Type ---------- */
+.ig-eyebrow {
+  margin: 0;
+  font: 900 23px/1 var(--driva-font-sans);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--driva-amber);
+}
+.ig-slide--ink .ig-eyebrow { color: var(--driva-paper-muted); }
+
+.ig-display {
+  margin: 0;
+  font: 900 116px/0.94 var(--driva-font-sans);
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+.ig-display .dim { color: var(--driva-muted); }
+.ig-slide--ink .ig-display .dim { color: var(--driva-paper-dim); }
+
+.ig-sub {
+  margin: 0;
+  font: 500 32px/1.5 var(--driva-font-sans);
+  letter-spacing: -0.01em;
+  color: var(--driva-muted);
+  max-width: 840px;
+  text-wrap: pretty;
+}
+.ig-sub strong { color: var(--driva-ink); font-weight: 800; }
+.ig-slide--ink .ig-sub { color: var(--driva-paper-muted); }
+.ig-slide--ink .ig-sub strong { color: var(--driva-paper); }
+
+/* ---------- Pills ---------- */
+.ig-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 27px 44px;
+  border-radius: var(--driva-r-pill);
+  font: 900 27px/1 var(--driva-font-sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  width: max-content;
+}
+.ig-pill--paper { background: var(--driva-paper); color: var(--driva-ink); }
+.ig-pill--ink   { background: var(--driva-ink); color: var(--driva-paper); box-shadow: var(--driva-shadow); }
+.ig-pill--amber { background: var(--driva-amber-soft); color: var(--driva-amber); }
+.ig-pill--green { background: var(--driva-green-soft); color: var(--driva-green); }
+.ig-pill .dot { width: 14px; height: 14px; border-radius: 50%; background: currentColor; }
+
+/* ---------- Footer strip ---------- */
+.ig-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: 800 22px/1 var(--driva-font-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--driva-muted);
+  position: relative;
+  z-index: 2;
+}
+.ig-slide--ink .ig-foot { color: var(--driva-paper-dim); }
+.ig-swipe { display: inline-flex; align-items: center; gap: 16px; }
+
+/* ---------- Cards ---------- */
+.ig-card {
+  background: var(--driva-card);
+  border-radius: var(--driva-r-panel);
+  box-shadow: var(--driva-shadow);
+  padding: 52px 56px;
+}
+
+/* ---------- Schedule rows ---------- */
+.ig-row {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  padding: 46px 54px;
+  border-radius: var(--driva-r-lot-card);
+  background: var(--driva-card);
+  box-shadow: var(--driva-shadow);
+}
+.ig-row--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: 3px dashed rgba(17, 17, 17, 0.22);
+}
+.ig-row-date {
+  flex: 0 0 264px;
+  font: 900 42px/1 var(--driva-font-sans);
+  letter-spacing: -0.045em;
+}
+.ig-row-date small {
+  display: block;
+  font: 900 19px/1 var(--driva-font-sans);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--driva-muted);
+  margin-top: 14px;
+}
+.ig-row-body { flex: 1; min-width: 0; }
+.ig-row-title {
+  margin: 0 0 12px;
+  font: 900 35px/1.05 var(--driva-font-sans);
+  letter-spacing: -0.04em;
+}
+.ig-row-note {
+  margin: 0;
+  font: 500 24px/1.45 var(--driva-font-sans);
+  color: var(--driva-muted);
+}
+.ig-status {
+  flex: 0 0 auto;
+  padding: 18px 30px;
+  border-radius: var(--driva-r-pill);
+  font: 800 21px/1 var(--driva-font-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ig-status--red   { background: var(--driva-red-soft); color: var(--driva-red); }
+.ig-status--amber { background: var(--driva-amber-soft); color: var(--driva-amber); }
+.ig-status--green { background: var(--driva-green-soft); color: var(--driva-green); }
+
+/* ---------- Countdown digits (slide 4) ---------- */
+.ig-clock {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+}
+.ig-clock-num {
+  font: 900 190px/1 var(--driva-font-sans);
+  letter-spacing: -0.06em;
+}
+.ig-clock-label {
+  font: 900 24px/1 var(--driva-font-sans);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--driva-paper-dim);
+}
+
+/* ---------- Order steps (slide 5) ---------- */
+.ig-step {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  padding: 40px 50px;
+  border-radius: var(--driva-r-lot-card);
+  background: var(--driva-card);
+  box-shadow: var(--driva-shadow);
+}
+.ig-step-num {
+  flex: 0 0 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--driva-chip);
+  display: grid;
+  place-items: center;
+  font: 900 34px/1 var(--driva-font-sans);
+  letter-spacing: -0.04em;
+}
+.ig-step-body { flex: 1; }
+.ig-step-title {
+  margin: 0 0 8px;
+  font: 900 32px/1.1 var(--driva-font-sans);
+  letter-spacing: -0.035em;
+}
+.ig-step-note {
+  margin: 0;
+  font: 500 23px/1.45 var(--driva-font-sans);
+  color: var(--driva-muted);
+}
+
+/* ---------- Signature block (slide 3) ---------- */
+.ig-quote {
+  margin: 0;
+  font: 800 52px/1.28 var(--driva-font-sans);
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.ig-quote .accent { color: var(--driva-amber); }
+.ig-sig {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.ig-sig-name {
+  font: 900 28px/1.2 var(--driva-font-sans);
+  letter-spacing: -0.02em;
+}
+.ig-sig-role {
+  font: 800 19px/1.4 var(--driva-font-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--driva-muted);
+}
